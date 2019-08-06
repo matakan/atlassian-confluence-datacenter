@@ -1,0 +1,23 @@
+---
+# Above lines are commented out and Below lines are added by mustafa for portworks shared storage
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+    name: px-shared-sc
+provisioner: kubernetes.io/portworx-volume
+parameters:
+   repl: "1"
+   shared: "true"
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+   name: px-confluence-shared-pvc
+   annotations:
+     volume.beta.kubernetes.io/storage-class: px-shared-sc
+spec:
+   accessModes:
+     - ReadWriteMany
+   resources:
+     requests:
+       storage: 20G
