@@ -1,5 +1,5 @@
 ---
-# Above lines are commented out and Below lines are added by mustafa for portworks shared storage
+# Above lines are commented out and Below lines are added by mustafa for portworx shared storage
 kind: StorageClass
 apiVersion: storage.k8s.io/v1
 metadata:
